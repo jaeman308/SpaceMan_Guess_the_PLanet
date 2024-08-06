@@ -19,7 +19,7 @@
 - CurrentWord: empty array to hold the current word from the word bank. 
 - Guess count: empty number to hold the count down of the guesses which will be 5 max
 - Correct letters: empty  providing what the user has inputted. 
-- Timer: empty number to show how much time left. A minute to guess the word.
+
 
 ### **Constants:**
 
@@ -31,7 +31,7 @@
 - Message element 
 - Reset button element 
 - Display of word element 
-- Timer element 
+- Guesses left element
 
 ### **Functions:**
 - Init game: start of game  
