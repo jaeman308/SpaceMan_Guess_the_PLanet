@@ -4,11 +4,10 @@
 ## **User Stories:**
 - As a user I want to have a landing page that will show a space themed hangman game.
 - As a user I want to see clear instructions on how to play the game.
-- As a user I want to have input bubbles for the current guess of the word.
+- As a user I want to have btns that will allow the input of the guess. 
 - As a user I want to see how many guesses I have left. 
 - As a user I want to have a message saying either guess again you, won, or you lost. 
 - As a user I want a hint of what word I'm guessing. 
-- As a user i want to have a keyboard to click my guess
 - As a user I want a reset button to be able reset the game. 
 
 ## **Pseudocode**
@@ -39,9 +38,10 @@
 - Timer function: to show how much time they player has. 
 - Reset button: allowing the game to be back to init game. 
 - Update message: to either tell the play guess again won or lost.
+- letter butttons of the aphlabet to input the user guess. 
 
 
 ### **Event Listeners:**
 
-- Click event listener to allow the player to input guess
+- Click event listener to allow the player to input guess that are connect to the alpahbet letters. 
 - Click event listener for the reset button 
