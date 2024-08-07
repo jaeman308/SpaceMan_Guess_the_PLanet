@@ -16,7 +16,7 @@
 
 - CurrentWord: empty array to hold the current word from the word bank. 
 - Guess count: empty number to hold the count down of the guesses which will be 5 max
-- Correct letters: empty  providing what the user has inputted. 
+- Correct letters: empty string  providing what the user has inputted. 
 
 
 ### **Constants:**
@@ -30,6 +30,7 @@
 - Reset button element 
 - Display of word element 
 - Guesses left element
+- Letter button element
 
 ### **Functions:**
 - Init game: start of game  
