@@ -3,7 +3,7 @@ body {
     color: white;
     display: flex;
     flex-wrap: wrap;
-    align-items: flex-end;
+    align-items: flex-start;
     justify-content: center;
 
 }
@@ -70,7 +70,15 @@ section, #alphabet {
     justify-content: center;
 }
 
-
+.alone_astro{
+    display: flex;
+    justify-content: flex-end;
+    
+}
+#astro {
+    max-width: 30%;
+    max-height: 30%;
+}
 #resetbtn {
     border: 5px solid #F78546 ;
     border-radius: 25px;
