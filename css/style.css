@@ -1,23 +1,33 @@
+@import url('https://fonts.googleapis.com/css2?family=Fjalla+One&family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
 body {
     background-color: black;
     color: white;
     display: flex;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
     align-items: flex-start;
+    flex-direction: row;
     justify-content: center;
+    font-family: "Space Mono", monospace;
+    font-weight: 400;
+    font-style: normal;
+
 
 }
 
 .instuctions {
     color: white;
     display: flex;
-    justify-content: flex-end;
+    justify-content: center;
     align-items: baseline;
-    padding: 5px;
+    padding: 20px;
     margin: auto;
-
+    max-width: 400px;
+    max-height: 450px;
+    font-size: 20px;
+    
     p {
-        font-size: 20px;
+        font-size: 15px;
     }
 
 }
@@ -63,12 +73,11 @@ section, #alphabet {
     background-color: #82c6ce;
     border: solid white;
     border-radius: 10px;
+    font-family: "Space Mono", monospace;
+
 }
 
-.resetbutton {
-    display: flex;
-    justify-content: center;
-}
+
 
 .alone_astro{
     display: flex;
@@ -87,5 +96,21 @@ section, #alphabet {
     padding: 10px;
     color: white;
     cursor: pointer;
+    overflow: hidden;
+    position: relative;
+    width: 200px;
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: "Space Mono", monospace;
+    
+}
 
+#resetbtn:hover {
+    background-image: url('images/SPACE MAN “Guess the PLanet!” (2).png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    color: transparent;
 }
