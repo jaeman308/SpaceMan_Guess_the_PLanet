@@ -48,34 +48,64 @@ const wordBank = [
 ]
 const maxGuesses = 5;
 
+
 /*---------------------------- Variables (state) ----------------------------*/
 let currentWord = "";
 let guessCount = 0;
-let correctLetters = '';
+let livesLeft = 0;
+let correctLetters = [];
 let message = '';
+let alphabet= '';
 
 
 /*------------------------ Cached Element References ------------------------*/
 const messageEl = document.querySelector(".message")
-const diplayEL = document.querySelector("#display_word")
 const letterEl= document.querySelector("#alphabet")
 const playAgainBtn= document.querySelector("#resetBtn")
-
+const display_WordEl = document.querySelector(".displayWord")
+const keyboardDiv = document.querySelector(".keyboard")
+const livesLeftEl = document.querySelector(".guessCount")
 
 
 // console.dir(messageEl)
 // console.dir(playersWord)
 // console.dir(letterEl)
-
+// console.dir(livesLeftEl)
+// console.dir(keyboardDiv)
+// console.dir(playAgainBtn)
 /*-------------------------------- Functions --------------------------------*/
 
 const init = () =>{
-    currentWord = '';
+    correctLetters = [];
     guessCount= 0;
-    correctLetters = '';
-    }
+    livesLeft= 0;
+    // display_WordEl.innerHTML = currentWord.split('').map(() => 
+    // ` ul id="letter"></ul>`).join('');
+    // keyboardDiv.querySelectorAll(".alphabetBtn").forEach(btn => btn.disable = false)    
+
+    };
 
 init()
+
+const updateDisplayWord = () => {
+        display_WordEl.innerHTML = wordToGuess.split('').map(letter => 
+            guessedLetters.includes(letter) ? `<li>${letter}</li>` : `<li>_</li>`
+        ).join('');
+    }
+
+const handleButtonClick = (event) => {
+    const correctLetters =event.target.textContent;
+
+    if (randomWord.inclueds(correctLetters)) {
+        if (!correctLetters.inclues(correctLetters)){
+            correctLetters.push(correctLetters)
+        }
+    }
+    updateDisplayWord();
+    document.querySelectorAll('.alphabetBtn').forEach(button => {
+        button.addEventListener('click', handleButtonClick)
+    });
+}
 
 
 const randomWord = () => {
@@ -85,7 +115,21 @@ const randomWord = () => {
     init();
 }
 
+function updateMessage() {
+    if (correctLetters === randomWord) {
+        messageEl.textContent = `Congratulations You won the mission!`;
+    } else (correctLetters !== randomWord) 
+        messageEl.textContent = `Mission has ended! You failed try again`;
+
+};
+
+
+const render = () => {
+    randomWord ();
+    updateDisplayWord ();
+    updateMessage ();
+}
 /*----------------------------- Event Listeners -----------------------------*/
-resetbtn.addEventListener('click', randomWord)
+resetBtn.addEventListener('click', randomWord)
 
 
