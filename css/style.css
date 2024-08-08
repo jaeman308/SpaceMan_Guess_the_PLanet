@@ -5,7 +5,7 @@ body {
     color: white;
     display: flex;
     flex-wrap: nowrap;
-    align-items: flex-start;
+    align-items: center;
     flex-direction: row;
     justify-content: center;
     font-family: "Space Mono", monospace;
@@ -32,13 +32,41 @@ body {
 
 }
 
+#playsWord {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: auto;
+    padding: 10px;
+    font-family: "Space Mono", monospace;
+    font-size: 20px;
+    max-width: 400px;
+    max-height: 450px;
+}
+.callSection{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    margin: auto;
+}
 .message {
     color: #755DA4;
     font-size: 40px;
     display: flex;
     justify-content: center;
+    padding: 10px;
+    margin: auto;
 
 
+}
+
+.guessCount {
+    display: flex;
+    justify-content: center;
+    margin: auto;
 }
 
 #image {
@@ -105,12 +133,4 @@ section, #alphabet {
     align-items: center;
     font-family: "Space Mono", monospace;
     
-}
-
-#resetbtn:hover {
-    background-image: url('images/SPACE MAN “Guess the PLanet!” (2).png');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    color: transparent;
 }
