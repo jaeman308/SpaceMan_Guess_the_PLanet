@@ -36,7 +36,6 @@
 - Init game: start of game  
 - Checkgues:  to see if the  correct word was imputed 
 - Random word: calling a random word from the word bank. 
-- Timer function: to show how much time they player has. 
 - Reset button: allowing the game to be back to init game. 
 - Update message: to either tell the play guess again won or lost.
 - letter butttons of the aphlabet to input the user guess. 

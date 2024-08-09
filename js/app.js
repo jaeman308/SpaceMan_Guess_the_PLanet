@@ -1,106 +1,104 @@
 /*-------------------------------- Constants --------------------------------*/
 const wordBank = [
-    {    word: "Mecrury",
-         hint: `This planet is closest to the Sun and
-         has the shortest year in our solar system.
-        It has extreme temperature variations between day and night!`
+    {    word: "Mercury",
+         hint: "This planet is closest to the Sun andhas the shortest year in our solar system.It has extreme temperature variations between day and night!"
     },
     {    word: "Venus",
-         hint: `Known as Earth's sister planet due to 
-         its similar size, it has a thick, toic 
-         atmosphere and is the hottest planet.`
+         hint: "Known as Earth's sister planet due to its similar size, it has a thick, toxic atmosphere and is the hottest planet."
     },
     {   word: "Earth",
-        hint:`Our home planet, it has a unique atmosphere
-         that supports life and is the only known planet 
-         with liquid water on its surface.`
+        hint:"Our home planet, it has a unique atmosphere that supports life and is the onlyknown planet with liquid water on its surface."
     },
     {   word: "Mars",
-        hint: `Often call the Red Planet because of its 
-        reddish appearance, it has the tallest volacno 
-        and the deepest canyon in the solar system.`
+        hint: "Often call the Red Planet because of its reddish appearance, it has the tallest volcano and the deepest canyon in the solar system."
     },
     {   word: "Jupiter",
-        hint: `The largest planet in the solar system, 
-        it has a Great Red Spot that is a massive storm 
-        and is known for its many moons.`
+        hint: "The largest planet in the solar system,  it has a Great Red Spot that is a massive storm  and is known for its many moons."
     },
     {   word: "Saturn",
-        hint: `Famous for its stunning ring system, the
-         gas gaint is the second-largest planet in our solar system.`
+        hint: "Famous for its stunning ring system, the gas giant is the second-largest planet in our solar system."
     },
     {   word: "Uranus",
-        hint: `This planet is unique for its extreme tilt, 
-        which causes it to roll on its side as it orbits the Sun.`
+        hint: "This planet is unique for its extreme tilt, which causes it to roll on its side as it orbits the Sun."
     },
     {   word: "Neptune",
-        hint: `Known for its deep blue color due to 
-        its methane atomsphere, it has strong winds and is 
-        the farthest planet from the Sun.`
+        hint: "Known for its deep blue color due to its methane atomsphere, it has strong winds and is the farthest planet from the Sun."
     },
     {   word: "Pluto",
-        hint: `Once considered the ninth planet, it 
-        is now classified as a dwarf planet. It has a highly 
-        elliptical orbit and a surface with icy plains and mountains.`
+        hint: "Once considered the ninth planet, it is now classified as a dwarf planet. It has a highly elliptical orbit and a surface with icy plains and mountains."
 
     }
 
-]
-const maxGuesses = 5;
+];
+const maxGuesses = 10;
 
 
 /*---------------------------- Variables (state) ----------------------------*/
-let currentWord = "";
+let currentWord = '';
 let livesLeft = maxGuesses;
 let guessedLetters = [];
 let message = '';
-
+let gameActive = false;
 
 
 /*------------------------ Cached Element References ------------------------*/
-const messageEl = document.querySelector(".message")
-const letterEl= document.querySelector("#alphabet")
-const playAgainBtn= document.querySelector("#resetBtn")
-const display_WordEl = document.querySelector(".displayWord")
-const livesLeftEl = document.querySelector(".guessCount")
+const messageEl = document.querySelector(".message");
+const playAgainBtn= document.querySelector("#resetBtn");
+const displayWordEl = document.querySelector(".displayWord");
+const livesLeftEl = document.querySelector(".guessCount");
+const startBtn = document.querySelector("#startBtn");
 
 
 // console.dir(messageEl)
 // console.dir(playersWord)
 // console.dir(letterEl)
 // console.dir(livesLeftEl)
-// console.dir(keyboardDiv)
 // console.dir(playAgainBtn)
+//console.dir(startBtn)
 /*-------------------------------- Functions --------------------------------*/
 
 function init() {
     guessedLetters = [];
-    livesLeft= 0;  
-    updateDisplayWord();
-    updateMessage();
+    livesLeft = maxGuesses;  
+    gameActive = true;
+    render();
 }
 
 
 function updateDisplayWord () {
-        display_WordEl.innerHTML = wordToGuess.split('').map(letter => 
-            guessedLetters.includes(letter) ? `<li>${letter}</li>` : `<li>_</li>`
-        ).join('');
+    console.log("Current Word:", currentWord);
+    console.log("Guessed Letters:", guessedLetters);
+
+        displayWordEl.innerHTML = '';
+        
+        currentWord.split('').forEach(letter => {
+            const listItem = document.createElement('li');
+            listItem.innerHTML = guessedLetters.includes(letter) ? letter : '_';
+            displayWordEl.appendChild(listItem);
+        });
     }
 
-function handleButtonClick (event) {
-    const clickedLetters = event.target.textContent;
 
-        if(!guessedLetters.includes(clickedLetter)){
-            guessedtLetters.push(clickedLetter);
+function render () {
+    updateDisplayWord();
+    updateMessage();
+}
+
+function handleButtonClick (event) {
+    if (!gameActive) return;
+
+    const clickedLetter = event.target.textContent;
+    
+    if(!guessedLetters.includes(clickedLetter)) {
+            guessedLetters.push(clickedLetter);
             if (currentWord.includes(clickedLetter)) {
-                updateDisplayWord();
-                updateMessage ();
             } else {
                 livesLeft--;
-                livesLeftEl.textContent = `Lives left: ${livesLeft}`;
-                updateMessage();
+                livesLeft.textContent = `Lives left: ${livesLeft}`;
             }
-        }
+            render();
+        } 
+        console.log(clickedLetter)
     }
 
 
@@ -113,20 +111,25 @@ function startGame () {
 }
 
 function updateMessage() {
-    if (currentWord === randomWord) {
-        messageEl.textContent = `Congratulations You won the mission!`;
-    } else (correctLetters !== randomWord) 
-        messageEl.textContent = `Mission has ended! You failed try again`;
+    if (currentWord.split('').every(letter => letter === ' ' || guessedLetters.includes(letter))) {
+        message = `Congratulations You won the mission!`;
+        gameActive = false;
+    } else if (livesLeft <= 0) { 
+        message = `Mission has ended! You failed try again`;
+        gameActive = false;
+    } else {
+        message = `You got this!! Keep guessing!`;
+    }
+    messageEl.textContent = message;
+}
 
-};
 
-
-// const render = () => {
-//     randomWord ();
-//     updateDisplayWord ();
-//     updateMessage ();
-// }
 /*----------------------------- Event Listeners -----------------------------*/
-playAgainBtn.addEventListener('click', startGame)
+playAgainBtn.addEventListener('click', startGame);
+startBtn.addEventListener('click', startGame)
+document.querySelectorAll('.alphabetBtn').forEach(button => {
+    button.addEventListener('click', handleButtonClick);
+});
+
 
 

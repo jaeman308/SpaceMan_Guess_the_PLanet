@@ -19,6 +19,7 @@ body {
     color: white;
     display: flex;
     justify-content: center;
+    flex-wrap: wrap;
     align-items: baseline;
     padding: 20px;
     margin: auto;
@@ -32,18 +33,46 @@ body {
 
 }
 
-#playsWord {
+#playersWord {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     margin: auto;
     padding: 10px;
-    font-family: "Space Mono", monospace;
-    font-size: 20px;
-    max-width: 400px;
-    max-height: ;
 }
+#hintText {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+
+}
+
+.hint_text {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    max-width: 400px;
+    max-height: 450px;
+    margin: auto;
+    padding: 15px;
+    font-family: "Space Mono", monospace;
+    font-size: 15px;
+    color: #f78546;
+
+}
+
+.displayWord {
+    list-style: none;
+    display: flex;
+    padding: 10px;
+    margin: auto;
+    font-size: 60px;
+    max-width: 400px;
+    max-height: 450px;
+    
+}
+
 .callSection{
     display: flex;
     flex-direction: column;
@@ -76,7 +105,7 @@ body {
 
 }
 
-section, .keyboard {
+section, #keyboard {
     display: flex;
     flex-wrap: wrap;
     flex-direction: row column;
@@ -116,6 +145,30 @@ section, .keyboard {
     max-width: 30%;
     max-height: 30%;
 }
+
+.buttons {
+display: flex;
+justify-content: center;
+align-items: center;
+
+}
+#startBtn {
+    border: 5px solid #F78546 ;
+    border-radius: 25px;
+    background-color: #755DA4;
+    margin: auto; 
+    padding: 10px;
+    color: white;
+    cursor: pointer;
+    overflow: hidden;
+    position: relative;
+    width: 200px;
+    height: 60px;
+   font-family: "Space Mono", monospace;
+    
+}
+
+
 #resetBtn {
     border: 5px solid #F78546 ;
     border-radius: 25px;
@@ -128,9 +181,6 @@ section, .keyboard {
     position: relative;
     width: 200px;
     height: 60px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-family: "Space Mono", monospace;
-    
+   font-family: "Space Mono", monospace;
+
 }
