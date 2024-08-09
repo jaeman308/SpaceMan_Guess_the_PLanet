@@ -1,7 +1,7 @@
 /*-------------------------------- Constants --------------------------------*/
 const wordBank = [
     {    word: "Mercury",
-         hint: "This planet is closest to the Sun andhas the shortest year in our solar system.It has extreme temperature variations between day and night!"
+         hint: "This planet is closest to the Sun and has the shortest year in our solar system. It has extreme temperature variations between day and night!"
     },
     {    word: "Venus",
          hint: "Known as Earth's sister planet due to its similar size, it has a thick, toxic atmosphere and is the hottest planet."
