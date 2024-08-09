@@ -62,46 +62,48 @@ function init() {
     livesLeft = maxGuesses;  
     gameActive = true;
     render();
+
 }
 
 
 function updateDisplayWord () {
-    console.log("Current Word:", currentWord);
-    console.log("Guessed Letters:", guessedLetters);
-
         displayWordEl.innerHTML = '';
         
         currentWord.split('').forEach(letter => {
             const listItem = document.createElement('li');
-            listItem.innerHTML = guessedLetters.includes(letter) ? letter : '_';
+            listItem.textContent = guessedLetters.includes(letter) ? letter : '_';
             displayWordEl.appendChild(listItem);
         });
+        console.log("Current Word:", currentWord);
+        console.log("Guessed Letters:", guessedLetters);
+        console.log("Display Word Content:", displayWordEl.textContent);
+        
     }
 
 
-function render () {
-    updateDisplayWord();
-    updateMessage();
-}
-
-function handleButtonClick (event) {
-    if (!gameActive) return;
-
-    const clickedLetter = event.target.textContent;
     
-    if(!guessedLetters.includes(clickedLetter)) {
+    function handleButtonClick (event) {
+        if (!gameActive) return;
+        
+        const clickedLetter = event.target.textContent;
+        
+        if(!guessedLetters.includes(clickedLetter)) {
             guessedLetters.push(clickedLetter);
             if (currentWord.includes(clickedLetter)) {
             } else {
                 livesLeft--;
-                livesLeft.textContent = `Lives left: ${livesLeft}`;
+                livesLeftEl.textContent = `Lives left: ${livesLeft}`;
             }
             render();
         } 
         console.log(clickedLetter)
     }
-
-
+    
+    
+    function render () {
+        updateDisplayWord();
+        updateMessage();
+    }
 
 function startGame () {
     const {word, hint} = wordBank [Math.floor (Math.random() * wordBank.length)];
@@ -111,14 +113,15 @@ function startGame () {
 }
 
 function updateMessage() {
-    if (currentWord.split('').every(letter => letter === ' ' || guessedLetters.includes(letter))) {
-        message = `Congratulations You won the mission!`;
+    const wordDisplay = Array.from(displayWordEl.children).map(li => li.textContent).join('');
+    if (currentWord === wordDisplay) {
+        message = 'Congratulations You won the mission!';
         gameActive = false;
     } else if (livesLeft <= 0) { 
-        message = `Mission has ended! You failed try again`;
+        message = 'Mission has ended! You failed try again';
         gameActive = false;
     } else {
-        message = `You got this!! Keep guessing!`;
+        message = 'You got this!! Keep guessing!';
     }
     messageEl.textContent = message;
 }
@@ -130,6 +133,4 @@ startBtn.addEventListener('click', startGame)
 document.querySelectorAll('.alphabetBtn').forEach(button => {
     button.addEventListener('click', handleButtonClick);
 });
-
-
 
