@@ -51,11 +51,10 @@ const maxGuesses = 5;
 
 /*---------------------------- Variables (state) ----------------------------*/
 let currentWord = "";
-let guessCount = 0;
-let livesLeft = 0;
-let correctLetters = [];
+let livesLeft = maxGuesses;
+let guessedLetters = [];
 let message = '';
-let alphabet= '';
+
 
 
 /*------------------------ Cached Element References ------------------------*/
@@ -63,7 +62,6 @@ const messageEl = document.querySelector(".message")
 const letterEl= document.querySelector("#alphabet")
 const playAgainBtn= document.querySelector("#resetBtn")
 const display_WordEl = document.querySelector(".displayWord")
-const keyboardDiv = document.querySelector(".keyboard")
 const livesLeftEl = document.querySelector(".guessCount")
 
 
@@ -75,40 +73,39 @@ const livesLeftEl = document.querySelector(".guessCount")
 // console.dir(playAgainBtn)
 /*-------------------------------- Functions --------------------------------*/
 
-const init = () =>{
-    correctLetters = [];
-    guessCount= 0;
-    livesLeft= 0;
-    // display_WordEl.innerHTML = currentWord.split('').map(() => 
-    // ` ul id="letter"></ul>`).join('');
-    // keyboardDiv.querySelectorAll(".alphabetBtn").forEach(btn => btn.disable = false)    
+function init() {
+    guessedLetters = [];
+    livesLeft= 0;  
+    updateDisplayWord();
+    updateMessage();
+}
 
-    };
 
-init()
-
-const updateDisplayWord = () => {
+function updateDisplayWord () {
         display_WordEl.innerHTML = wordToGuess.split('').map(letter => 
             guessedLetters.includes(letter) ? `<li>${letter}</li>` : `<li>_</li>`
         ).join('');
     }
 
-const handleButtonClick = (event) => {
-    const correctLetters =event.target.textContent;
+function handleButtonClick (event) {
+    const clickedLetters = event.target.textContent;
 
-    if (randomWord.inclueds(correctLetters)) {
-        if (!correctLetters.inclues(correctLetters)){
-            correctLetters.push(correctLetters)
+        if(!guessedLetters.includes(clickedLetter)){
+            guessedtLetters.push(clickedLetter);
+            if (currentWord.includes(clickedLetter)) {
+                updateDisplayWord();
+                updateMessage ();
+            } else {
+                livesLeft--;
+                livesLeftEl.textContent = `Lives left: ${livesLeft}`;
+                updateMessage();
+            }
         }
     }
-    updateDisplayWord();
-    document.querySelectorAll('.alphabetBtn').forEach(button => {
-        button.addEventListener('click', handleButtonClick)
-    });
-}
 
 
-const randomWord = () => {
+
+function startGame () {
     const {word, hint} = wordBank [Math.floor (Math.random() * wordBank.length)];
     currentWord = word;
     document.querySelector('.hint_text').innerText= hint;
@@ -116,7 +113,7 @@ const randomWord = () => {
 }
 
 function updateMessage() {
-    if (correctLetters === randomWord) {
+    if (currentWord === randomWord) {
         messageEl.textContent = `Congratulations You won the mission!`;
     } else (correctLetters !== randomWord) 
         messageEl.textContent = `Mission has ended! You failed try again`;
@@ -124,12 +121,12 @@ function updateMessage() {
 };
 
 
-const render = () => {
-    randomWord ();
-    updateDisplayWord ();
-    updateMessage ();
-}
+// const render = () => {
+//     randomWord ();
+//     updateDisplayWord ();
+//     updateMessage ();
+// }
 /*----------------------------- Event Listeners -----------------------------*/
-resetBtn.addEventListener('click', randomWord)
+playAgainBtn.addEventListener('click', startGame)
 
 
