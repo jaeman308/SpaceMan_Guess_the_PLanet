@@ -48,6 +48,9 @@
 
 - Click event listener to allow the player to input guess that are connect to the alpahbet letters. 
 - Click event listener for the reset button 
-
+- click event lister to start the game
 
 ### **Reference**
+- [MDN DOCS](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array)
+- [JSCONFETTI](https://www.npmjs.com/package/js-confetti)
+- Tic Tac Toe referrance as an example.
