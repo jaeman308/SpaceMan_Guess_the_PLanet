@@ -4,6 +4,12 @@
 ![gamelogo](https://i.postimg.cc/yNp6ZJsf/SPACE-MAN-Guess-the-PLanet.png)
 
 
+## **SpaceMan:**
+The game is a hangman style game that is targeting your knowledge of the solar system. 
+Simple guess the word from the hint that is provide you have 10 lives to try to win the mission. 
+This game felt like I was able  connect with my logic. 
+
+
 ## **User Stories:**
 - As a user I want to have a landing page that will show a space themed hangman game.
 - As a user I want to see clear instructions on how to play the game.
