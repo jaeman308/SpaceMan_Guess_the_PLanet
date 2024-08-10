@@ -115,7 +115,7 @@ function startGame () {
 function updateMessage() {
     const wordDisplay = Array.from(displayWordEl.children).map(li => li.textContent).join('');
     if (currentWord === wordDisplay) {
-        message = 'Congratulations You won the mission!';
+        message = 'Congratulations Mission Complete!';
         gameActive = false;
         jsConfetti.addConfetti({
             emojis: [ '⚡️',  '✨', '💫'],
@@ -125,7 +125,7 @@ function updateMessage() {
         message = 'Mission has ended! You failed try again';
         gameActive = false;
     } else {
-        message = 'You got this!! Keep guessing!';
+        message = 'Keep guessing!';
     }
     messageEl.textContent = message;
 }
