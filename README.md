@@ -1,5 +1,8 @@
 # Spaceman: Guess the Planets!!
 
+  
+![gamelogo](https://i.postimg.cc/yNp6ZJsf/SPACE-MAN-Guess-the-PLanet.png)
+
 
 ## **User Stories:**
 - As a user I want to have a landing page that will show a space themed hangman game.

@@ -31,7 +31,7 @@ const wordBank = [
 
 ];
 const maxGuesses = 10;
-
+const jsConfetti = new JSConfetti()
 
 /*---------------------------- Variables (state) ----------------------------*/
 let currentWord = '';
@@ -58,8 +58,8 @@ const startBtn = document.querySelector("#startBtn");
 /*-------------------------------- Functions --------------------------------*/
 
 function init() {
-    guessedLetters = [];
-    livesLeft = 10;  
+    guessedLetters = [];  
+    livesLeft = maxGuesses;
     gameActive = true;
     render();
 
@@ -117,6 +117,10 @@ function updateMessage() {
     if (currentWord === wordDisplay) {
         message = 'Congratulations You won the mission!';
         gameActive = false;
+        jsConfetti.addConfetti({
+            emojis: [ '⚡️',  '✨', '💫'],
+         })
+
     } else if (livesLeft <= 0) { 
         message = 'Mission has ended! You failed try again';
         gameActive = false;
@@ -128,7 +132,7 @@ function updateMessage() {
 
 
 /*----------------------------- Event Listeners -----------------------------*/
-playAgainBtn.addEventListener('click', startGame);
+playAgainBtn.addEventListener('click', init);
 startBtn.addEventListener('click', startGame)
 document.querySelectorAll('.alphabetBtn').forEach(button => {
     button.addEventListener('click', handleButtonClick);
