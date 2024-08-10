@@ -45,3 +45,6 @@
 
 - Click event listener to allow the player to input guess that are connect to the alpahbet letters. 
 - Click event listener for the reset button 
+
+
+### **Reference**

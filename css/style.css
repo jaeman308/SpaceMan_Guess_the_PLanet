@@ -83,11 +83,13 @@ body {
 }
 .message {
     color: #755DA4;
-    font-size: 40px;
+    font-size: 25px;
     display: flex;
     justify-content: center;
-    padding: 10px;
+    align-items: center;
     margin: auto;
+    flex-direction: column;
+    position: relative;
 
 
 }
@@ -97,7 +99,7 @@ body {
     justify-content: center;
     margin: auto;
 }
-
+/*  */
 #image {
     border: 10px dotted white;
     margin: 20px 20px 20px 20px;
