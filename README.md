@@ -69,3 +69,9 @@ This game felt like I was able  connect with my logic. Which was a way to show c
 ### **Attributions**
 - [JSCONFETTI](https://www.npmjs.com/package/js-confetti)
 - Logo created on [canva](https://www.canva.com/design/DAGNAF16nyQ/_R5ZjIjcCJusV10CvF_fCA/edit?utm_content=DAGNAF16nyQ&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton)
+
+
+## **Next Steps**
+- Create a tranistion in button to a planet. 
+- Create an explosion of some sort with the user losses the game. 
+- A feature where the first page is the mission and when clicking the start button it takes you to the game page. 
