@@ -6,10 +6,20 @@
 
 ## **SpaceMan:**
 The game is a hangman style game that is targeting your knowledge of the solar system. 
-Simple guess the word from the hint that is provide you have 10 lives to try to win the mission. 
-This game felt like I was able  connect with my logic. 
+Simple as to guessing the word from the hint that is provide you have 10 lives to try to win the mission. 
+This game felt like I was able  connect with my logic. Which was a way to show case what I have learned with in the course so far. 
 
 
+## **Technologies:**
+- HTML
+- CSS
+- Javascript
+
+## **Getting Started**
+- [Deployed Link](https://jaeman308.github.io/SpaceMan_Guess_the_PLanet/)
+
+
+# **The plan:**
 ## **User Stories:**
 - As a user I want to have a landing page that will show a space themed hangman game.
 - As a user I want to see clear instructions on how to play the game.
@@ -56,8 +66,6 @@ This game felt like I was able  connect with my logic.
 - Click event listener for the reset button 
 - click event lister to start the game
 
-### **Reference**
-- [MDN DOCS](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array)
+### **Attributions**
 - [JSCONFETTI](https://www.npmjs.com/package/js-confetti)
-- Tic Tac Toe referrance as an example.
-- Logo created on Canva.
+- Logo created on [canva](https://www.canva.com/design/DAGNAF16nyQ/_R5ZjIjcCJusV10CvF_fCA/edit?utm_content=DAGNAF16nyQ&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton)
