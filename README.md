@@ -54,3 +54,4 @@
 - [MDN DOCS](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array)
 - [JSCONFETTI](https://www.npmjs.com/package/js-confetti)
 - Tic Tac Toe referrance as an example.
+- Logo created on Canva.
